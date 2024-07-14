@@ -64,6 +64,11 @@ const Home = () => {
 
       <div>
         {loading && <Loading />}
+        {flightsData?.data?.itineraries?.length === 0 && (
+          <p className="mt-8 text-lg text-primary">
+            No flights found for the selected route
+          </p>
+        )}
         {flightsData && <FlightsList />}
 
         {/* <FlightsList /> */}
