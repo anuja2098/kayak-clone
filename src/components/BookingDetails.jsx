@@ -20,7 +20,7 @@ const BookingDetails = ({ passenger }) => {
   return (
     <div className="w-full">
       <div className="h-[200px]  relative overflow-hidden  text-white orange-gradient">
-        <div className="flex flex-col p-14  justify-center text-xl w-full flex font-bold ">
+        <div className="flex flex-col p-14  justify-center text-xl w-full font-bold ">
           <div className="flex flex-row gap-2">
             <h1>{booking?.itineary?.legs?.[0]?.origin?.name}</h1>
             <PlaneIcon />
@@ -28,14 +28,14 @@ const BookingDetails = ({ passenger }) => {
           </div>
           <h1>Booking Id: {booking.id}</h1>
           <p>
-            Booking Date:{" "}
+            Booking Date:
             {format(
               booking?.itineary?.legs?.[0]?.segments?.[0]?.departure,
               "PP"
             )}
           </p>
         </div>
-
+        {/* pyQUtDW9bAV8NkIzOgro */}
         <img
           className="absolute -top-12 right-px"
           src="https://mybookings.easemytrip.com/Content/assest/img/flight_product.svg"

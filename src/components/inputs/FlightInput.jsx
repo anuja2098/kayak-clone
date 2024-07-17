@@ -1,4 +1,10 @@
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Plane } from "lucide-react";
 import AirportData from "../ui/AirportData";
 
@@ -8,10 +14,11 @@ const FlightInput = ({ onChange }) => {
   const handleChange = (value) => {
     onChange(value);
   };
+
   return (
     <div>
       <Select onValueChange={handleChange}>
-        <SelectTrigger className="w-[250px]">
+        <SelectTrigger className="w-[280px]">
           <Plane />
           <SelectValue placeholder="Roam around" />
         </SelectTrigger>

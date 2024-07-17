@@ -18,7 +18,7 @@ const BookingCard = ({ showViewDetailButton, booking }) => {
     navigate("/booking/details");
   };
 
-  console.log(booking);
+  // console.log(booking);
   return (
     <div className=" shadow-lg rounded-2xl">
       <div className=" border p-6 border-t-2">
@@ -41,7 +41,6 @@ const BookingCard = ({ showViewDetailButton, booking }) => {
               {booking?.itineary?.legs?.[0]?.carriers?.marketing?.[0]?.name}
             </div>
             <p className="text-gray-500 text-xs">
-              {" "}
               {booking?.itineary?.legs?.[0]?.segments?.[0]?.flightNumber}
             </p>
             <h5 className="text-xs font-bold">Economy</h5>

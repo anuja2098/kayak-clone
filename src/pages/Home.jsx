@@ -12,7 +12,7 @@ import {
   setFlightsData,
 } from "../lib/airportSlice";
 import FlightsList from "../components/FlightsList";
-import { fetchFlightData } from "../lib/fetchFlightDatat";
+import { fetchFlightData } from "../lib/fetchFlightData";
 import { Loading } from "../components/Loading";
 
 const Home = () => {

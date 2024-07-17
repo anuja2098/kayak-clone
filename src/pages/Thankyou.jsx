@@ -2,8 +2,11 @@ import React from "react";
 // import { Button } from "";
 import { useNavigate, useLocation } from "react-router-dom";
 import { Button } from "../components/ui/button";
+import { useSelector } from "react-redux";
 
 const Thankyou = () => {
+  const booking = useSelector((state) => state.booking);
+  console.log(booking);
   const location = useLocation();
   const navigate = useNavigate();
   const bookingId = location.state?.bookingId;

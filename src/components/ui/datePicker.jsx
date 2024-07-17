@@ -20,10 +20,12 @@ export default function DatePicker({ mode = "single", onChange }) {
     if (mode === "single") {
       setDate();
     } else {
-      setDate({
+      const date = {
         from: new Date(),
         to: addDays(new Date(), 10),
-      });
+      };
+      setDate(date);
+      onChange(date);
     }
   }, [mode]);
 

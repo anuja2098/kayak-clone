@@ -7,11 +7,12 @@ import Login from "./components/Login";
 import { Provider } from "react-redux";
 import appStore from "./lib/appStore";
 import Booking from "./pages/Booking";
-import Bookings from "./pages/Bookings";
 import BookingDetails from "./components/BookingDetails";
 import { Toaster } from "@/components/ui/toaster";
 import Thankyou from "./pages/Thankyou";
-
+import GuestBooking from "./components/GuestBooking";
+import AllBookings from "./pages/AllBookings";
+import StaysDetails from "./components/staysDetails";
 function App() {
   const appRouter = createBrowserRouter([
     {
@@ -40,11 +41,19 @@ function App() {
         },
         {
           path: "/bookings",
-          element: <Bookings />,
+          element: <AllBookings />,
         },
         {
           path: "/thankyou",
           element: <Thankyou />,
+        },
+        {
+          path: "/guest-booking",
+          element: <GuestBooking />,
+        },
+        {
+          path: "/booking/stays-details",
+          element: <StaysDetails />,
         },
       ],
     },

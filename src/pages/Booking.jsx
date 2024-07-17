@@ -6,6 +6,7 @@ import TravellersForm from "../components/TravellersForm";
 
 const Booking = () => {
   const itineary = useSelector((store) => store.booking.itineary);
+
   const navigate = useNavigate();
 
   useEffect(() => {
