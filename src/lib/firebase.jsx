@@ -21,21 +21,3 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth();
 export const db = getFirestore(app);
-// Initialize Firebase
-
-// const db=firebase.firestore()
-
-// const colRef = collection(db, "Booking");
-
-// getDocs(colRef)
-//   .then((snapshot) => {
-//     // console.log(snapshot.docs);
-//     let Booking = [];
-//     snapshot.docs.forEach((doc) => {
-//       Booking.push({ ...doc.data(), id: doc.id });
-//     });
-//     console.log(Booking);
-//   })
-//   .catch((err) => {
-//     console.log(err.message);
-//   });

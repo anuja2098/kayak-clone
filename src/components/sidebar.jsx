@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { MENU_ITEMS, USER_ROUTES } from "./constants";
+import { MENU_ITEMS, USER_ROUTES } from "../lib/constants";
 import { useSelector } from "react-redux";
 import Booking from "../pages/Bookings";
 
@@ -13,7 +13,15 @@ const Sidebar = () => {
     <aside className=" w-60">
       <div className="border-r border-gray-300 h-screen">
         {ROUTES.map((item) => (
-          <Link to={item.path} key={item.id} className={`flex gap-8 px-8 py-4 rounded-lg ${location.pathname === item.path ? "bg-gray-300 w-62 m-2" : "hover:w-62 m-2 hover:bg-gray-300"}`}>
+          <Link
+            to={item.path}
+            key={item.id}
+            className={`flex gap-8 px-8 py-4 rounded-lg ${
+              location.pathname === item.path
+                ? "bg-gray-300 w-62 m-2"
+                : "hover:w-62 m-2 hover:bg-gray-300"
+            }`}
+          >
             {item.icon} {item.text}
           </Link>
         ))}

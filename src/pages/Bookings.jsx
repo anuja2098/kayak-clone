@@ -38,10 +38,6 @@ const Bookings = () => {
     fetchBookings();
   }, [userUid]);
 
-  // console.log(bookings);
-  // const handleHotelClick = () => {
-  //   navigate("./hotels");
-  // };
   return (
     <div className="w-full p-10">
       <div>

@@ -47,7 +47,6 @@ const GuestCard = () => {
       console.log("error adding document", error);
     }
 
-    // console.log("Document written with ID: ", docRef.id);
     console.log("document created");
   };
 

@@ -16,10 +16,7 @@ const staysDetails = () => {
   const hotel = useSelector((state) => state?.hotel);
   const fromDate = useSelector((state) => state?.hotel?.fromDate);
   const toDate = useSelector((state) => state?.hotel?.toDate);
-  console.log(fromDate);
-  console.log(toDate);
 
-  console.log(hotel.guests);
   return (
     <div>
       <div className="h-[200px]  relative overflow-hidden  text-white orange-gradient">

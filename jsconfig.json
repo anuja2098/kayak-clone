@@ -5,6 +5,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.svelte", "src/components/Login.jsx"],
+  "include": [
+    "src/**/*.d.ts",
+    "src/**/*.js",
+    "src/**/*.svelte",
+    "src/components/Login.jsx",
+    "src/lib/constants.jsx"
+  ],
   "exclude": ["node_modules", "**/node_modules", "dist"]
 }

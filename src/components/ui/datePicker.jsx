@@ -29,7 +29,7 @@ export default function DatePicker({ mode = "single", onChange }) {
     }
   }, [mode]);
 
-  console.log(mode, date);
+  // console.log(mode, date);
 
   const handleChange = (value) => {
     onChange(value);

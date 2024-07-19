@@ -2,14 +2,17 @@ import React, { useState, useRef } from "react";
 import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { Button } from "@/components/ui/button";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { checkValidSignIn, checkValidData } from "./validate";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import { checkValidSignIn, checkValidData } from "../lib/validate";
 import { useDispatch } from "react-redux";
 import { updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth, db } from "../lib/firebase";
 import { setDoc, doc } from "firebase/firestore";
-import { USER_AVTAR } from "./constants";
+import { USER_AVTAR } from "../lib/constants";
 import { addUser } from "../lib/userSlice";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -30,12 +33,22 @@ const Login = () => {
   };
 
   const handleButtonClick = () => {
-    const message = isSignInForm ? checkValidSignIn(email.current.value, password.current.value) : checkValidData(name.current.value, email.current.value, password.current.value);
+    const message = isSignInForm
+      ? checkValidSignIn(email.current.value, password.current.value)
+      : checkValidData(
+          name.current.value,
+          email.current.value,
+          password.current.value
+        );
     setErrorMessage(message);
 
     if (message) return;
     if (!isSignInForm) {
-      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+      createUserWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then(async (userCredential) => {
           const user = userCredential.user;
           console.log(user.email, user.uid);
@@ -55,7 +68,14 @@ const Login = () => {
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
-              dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
+              dispatch(
+                addUser({
+                  uid: uid,
+                  email: email,
+                  displayName: displayName,
+                  photoURL: photoURL,
+                })
+              );
               navigate("/");
             })
             .catch((error) => {
@@ -69,16 +89,24 @@ const Login = () => {
           setErrorMessage(errorCode + "-" + errorMessage);
         });
     } else {
-      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+      signInWithEmailAndPassword(
+        auth,
+        email.current.value,
+        password.current.value
+      )
         .then((userCredential) => {
           toast({
             description: "User logged in Successfully",
           });
-          // Signed in
-          // const user = userCredential.user;
           const { uid, email, displayName, photoURL } = userCredential.user;
-          dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL }));
-          // console.log(user);
+          dispatch(
+            addUser({
+              uid: uid,
+              email: email,
+              displayName: displayName,
+              photoURL: photoURL,
+            })
+          );
           navigate("/");
         })
         .catch((error) => {
@@ -91,8 +119,13 @@ const Login = () => {
 
   return (
     <div className="bg-orange-100 w-full flex items-center justify-center h-[calc(100vh-96px)]">
-      <form onSubmit={(e) => e.preventDefault()} className=" p-6 h-[500px] w-[380px] shadow-lg rounded-xl bg-white ">
-        <h1 className="text-2xl font-bold my-4">{isSignInForm ? " Sign In" : "Sign Up"}</h1>
+      <form
+        onSubmit={(e) => e.preventDefault()}
+        className=" p-6 h-[500px] w-[380px] shadow-lg rounded-xl bg-white "
+      >
+        <h1 className="text-2xl font-bold my-4">
+          {isSignInForm ? " Sign In" : "Sign Up"}
+        </h1>
         <div className=" flex flex-col gap-5">
           {!isSignInForm && (
             <div>
@@ -116,7 +149,9 @@ const Login = () => {
             {isSignInForm ? " Sign In" : "Sign Up"}
           </Button>
           <Button variant="link" onClick={toggleSignInForm}>
-            {isSignInForm ? "New to Kayak? Sign Up Now" : "Already Registered? Sign In Now"}
+            {isSignInForm
+              ? "New to Kayak? Sign Up Now"
+              : "Already Registered? Sign In Now"}
           </Button>
         </div>
       </form>

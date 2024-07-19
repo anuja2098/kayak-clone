@@ -13,7 +13,7 @@ const Layout = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
-      console.log(user);
+      // console.log(user);
       if (user) {
         const { uid, displayName, email, photoURL, phoneNumber } = user;
         dispatch(
@@ -26,16 +26,12 @@ const Layout = () => {
           })
         );
         console.log("in auth state change ");
-
-        // console.log('signed in')
       } else {
-        // console.log('signed out')
         dispatch(removeUser());
         navigate("/login");
       }
     });
 
-    // Unsubscribe when component unmounted
     return () => unsubscribe();
   }, []);
   const isLogin = location.pathname === "/login";

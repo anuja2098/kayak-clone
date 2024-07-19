@@ -1,18 +1,33 @@
 import React from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 import { HousePlus } from "lucide-react";
-
-const StaysInput = () => {
+import LocationData from "../ui/LocationData";
+const StaysInput = ({ onChange }) => {
+  const handleChange = (value) => {
+    console.log(value);
+    onChange(value);
+  };
   return (
     <div>
-      <Select>
+      <Select onValueChange={handleChange}>
         <SelectTrigger className="w-[350px]">
           <HousePlus />
-          <SelectValue placeholder="Theme" />
-          Enter a city, airpot, or landmark
+          <SelectValue placeholder="  Enter a city, airpot, or landmark" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="system"></SelectItem>
+          {LocationData.map((item) => (
+            <SelectItem value={item.value}>
+              <section className=" p-3 w-64">
+                <div className="font-bold text-lg ">{item.label}</div>
+              </section>
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
     </div>

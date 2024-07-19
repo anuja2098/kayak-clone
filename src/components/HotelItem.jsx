@@ -27,8 +27,6 @@ const HotelItem = ({
   const fromDate = useSelector((state) => state.hotel.fromDate);
   const toDate = useSelector((state) => state.hotel.toDate);
   const navigate = useNavigate();
-  console.log(fromDate);
-  console.log(toDate);
 
   const handleClick = () => {
     dispatch(setHotelBooking(hotel));

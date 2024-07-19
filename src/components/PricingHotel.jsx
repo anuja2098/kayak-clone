@@ -8,8 +8,6 @@ const PricingHotel = () => {
 
   const pricePerGuest = hotel?.hotelBooking?.rawPrice;
   const totalGuests = guests.length;
-  console.log(pricePerGuest);
-  console.log(totalGuests);
   const totalPrice = totalGuests * pricePerGuest;
   return (
     <div>

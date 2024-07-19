@@ -1,8 +1,5 @@
 import React from "react";
-import flightListData from "../lib/flightListData";
-import { format } from "date-fns";
-import DurationComponent from "./Duration";
-import { Button } from "./ui/button";
+
 import FlightItem from "./FlightItem";
 import { useSelector } from "react-redux";
 
